@@ -2,6 +2,17 @@ name: Read text file
 
 on:
  workflow_dispatch:
+  inputs:
+    select-file:
+      description: 'Select a text file to read'
+      type: choice
+      required: true
+      default: 'tajvir.txt'
+
+      options:
+      - tajvir.txt
+      - staging
+      - production
 
 jobs: 
   read-file:
