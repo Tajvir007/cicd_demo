@@ -8,19 +8,32 @@ on:
       type: choice
       required: true
       default: 'tajvir.txt'
-
       options:
       - tajvir.txt
       - staging
       - production
 
+env:
+  Tajvir: "This is variable"
+
 jobs: 
   read-file:
    runs-on: ubuntu-latest
 
+   env:
+    Tajvir_ENV: ${{ secrets.Tajvir_ENV }}
+
    steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+
+      - name: Print TAJVIR_ENV secret variable
+        run: |
+          echo "The environment variable of TAJVIR_ENV is: $Tajvir_ENV"
+
+      - name: Print env variable name
+        run: |
+          echo "Env Variable: $Tajvir" 
 
       - name: Print user input
         run: |
