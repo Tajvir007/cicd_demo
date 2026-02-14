@@ -21,6 +21,11 @@ jobs:
    steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+
+      - name: Print user input
+        run: |
+          echo "User Input: ${{ github.event.inputs.select-file }}"  
+
       - name: read text file
         run:
           cat tajvir.txt 
