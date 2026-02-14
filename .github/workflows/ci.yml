@@ -29,5 +29,17 @@ jobs:
       - name: read text file
         run:
           cat tajvir.txt 
+
+      - name: Check the user input
+        run: |
+          if [ "${{ github.event.inputs.select-file }}" == "tajvir.txt" ]; then
+            echo "You selected tajvir.txt"
+          elif [ "${{ github.event.inputs.select-file }}" == "staging" ]; then
+            echo "You selected staging"
+          elif [ "${{ github.event.inputs.select-file }}" == "production" ]; then
+            echo "You selected production"
+          else
+            echo "Invalid selection"
+          fi
    
   
