@@ -1,0 +1,22 @@
+name: Read text file
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs: 
+  read-file:
+   runs-on: ubuntu-latest
+
+   steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: read text file
+        run:
+          echo tajvir.txt
+   
+  
